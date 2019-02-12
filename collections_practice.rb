@@ -22,27 +22,27 @@ end
 
 def merge_data(keys, data)
     keys.each { |names|
-        data.each { |dta|
-            names.merge!(dta[names[:first_name]])
+        data.each { |info|
+            names.merge!(info[names[:first_name]])
         }
     }
 end
 
 def find_cool(hashes)
-    hashes.select { |el| el.has_value?("cool")}
+    hashes.select { |x| x.has_value?("cool")}
 end
 
 def organize_schools(schools)
-    organized = {}
-    schools.each { |school, lochash|
-        lochash.each { |sym, location|
-            if organized[location]
-                organized[location] << school
+    new_schools = {}
+    schools.each {|school, loc|
+        loc.each {|info, location|
+            if new_schools[location]
+                new_schools[location] << school
             else
-                organized[location] = []
-                organized[location] << school
+                new_schools[location] = []
+                new_schools[location] << school
             end
         }
     }
-    organized
+    new_schools
 end
