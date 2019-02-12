@@ -7,5 +7,5 @@ def contain_a(elements)
 end
 
 def first_wa(elements)
-  elements.find {|x| x.start_with?("wa")}
+  elements.find {|x| x[0...2] == "wa"}
 end
