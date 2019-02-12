@@ -16,6 +16,6 @@ end
 
 def count_elements(array)
   array.group_by(&:itself).map do |k,v|
-     key.merge({:count => value.length})
+     k.merge({:count => v.length})
   end
 end
