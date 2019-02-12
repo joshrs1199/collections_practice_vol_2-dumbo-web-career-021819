@@ -13,3 +13,9 @@ end
 def remove_non_strings(elements)
   elements.reject {|x| !x.is_a?(String)}
 end
+
+def count_elements(array)
+  array.group_by(&:itself).map do |k,v|
+     key.merge({:count => value.length})
+  end
+end
