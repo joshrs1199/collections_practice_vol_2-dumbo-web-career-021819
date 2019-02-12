@@ -19,3 +19,30 @@ def count_elements(array)
      k.merge({:count => v.length})
   end
 end
+
+def merge_data(keys, data)
+    keys.each { |names|
+        data.each { |dta|
+            names.merge!(dta[names[:first_name]])
+        }
+    }
+end
+
+def find_cool(hashes)
+    hashes.select { |el| el.has_value?("cool")}
+end
+
+def organize_schools(schools)
+    organized = {}
+    schools.each { |school, lochash|
+        lochash.each { |sym, location|
+            if organized[location]
+                organized[location] << school
+            else
+                organized[location] = []
+                organized[location] << school
+            end
+        }
+    }
+    organized
+end
